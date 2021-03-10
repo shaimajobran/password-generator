@@ -1,4 +1,4 @@
-//Assign
+
 var specialcharacter = ['@', '%', '+',
   "\\",
   '/',
@@ -32,55 +32,62 @@ var userChoice = [];
 var password = "";
 var generatePassword = function () {
   var passLength = parseInt(window.prompt("how many characters whould you like your password to contain?"));
-  console.log(passLength);
+  
   if (!passLength) {
 
     return;
   }
-  else if (passLength < 8 || passLength > 128) {
-    alert("invalid");
+  else if (passLength > 128) {
+    alert("it needs to be less than 129");
     return;
 
   }
+  else if (passLength < 8) {
+    alert("it needs to be more than 8");
+    return;
+  }
+
   else {
     var isSpecChosen = window.confirm("click OK to confirm including special characters");
-    console.log(isSpecChosen);
+    
     var isLowerCase = window.confirm("click OK to confirm including  Lowercase characters");
-    console.log(isLowerCase);
+    
     var isUpperCase = window.confirm("click ok to confirm including  uppercase characters");
-    console.log(isUpperCase);
+    
     var isNumber = window.confirm("click OK to confirm including  numeric characters");
-    console.log(isNumber);
+   
   }
-  if (!isSpecChosen && !isLowerCase && !isUpperCase && !isNumber ) {
+  if (!isSpecChosen && !isLowerCase && !isUpperCase && !isNumber) {
     alert("You didnt chose a character type!");
     return;
 
- }
+  }
   else {
-    if (isSpecChosen){
-    userChoice = userChoice.concat(specialcharacter);
+    if (isSpecChosen) {
+      userChoice = userChoice.concat(specialcharacter);
     }
-if (isLowerCase){
-  userChoice = userChoice.concat(lowerCase);
-}
-if (isUpperCase){
-  userChoice = userChoice.concat(upperCase);
-}
-if (isNumber){
-userChoice = userChoice.concat(numbers);
-}
-console.log(userChoice);
+    if (isLowerCase) {
+      userChoice = userChoice.concat(lowerCase);
+    }
+    if (isUpperCase) {
+      userChoice = userChoice.concat(upperCase);
+    }
+    if (isNumber) {
+      userChoice = userChoice.concat(numbers);
+    }
+    console.log(userChoice);
+    var newpassword = makePassword(passLength,userChoice);
+    return newpassword;
   }
 }
-function generatePassword(length) {
-  var userChoice = password.length;
-for ( var i = 0; i < userChoice; i++ ) {
-  password += userChoice.password(Math.floor(Math.random() * userChoice));
-}
 
-return password;
-
+function makePassword(length,charset) {
+  var password = '';
+  var charactersLength = charset.length;
+  for (var i = 0; i < length; i++) {
+    password+= charset[(Math.floor(Math.random() * charactersLength))];
+  }
+  return password;
 }
 
 
@@ -94,7 +101,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+userChoice = [];
 }
 
 
