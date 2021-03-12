@@ -63,25 +63,29 @@ var generatePassword = function () {
     return;
 
   }
+  
   else {
+    //if special character is chosen then concat special character
     if (isSpecChosen) {
       userChoice = userChoice.concat(specialcharacter);
     }
+    //if a lowercase is chosen then concat lowercase character
     if (isLowerCase) {
       userChoice = userChoice.concat(lowerCase);
     }
+    //if an uppercase is chosen then concat an uppercase character
     if (isUpperCase) {
       userChoice = userChoice.concat(upperCase);
     }
+    //if a number is chosen then concat a number character
     if (isNumber) {
       userChoice = userChoice.concat(numbers);
     }
-    console.log(userChoice);
     var newpassword = makePassword(passLength, userChoice);
     return newpassword;
   }
 }
-//password is generated
+//password is generated ,and is written and displayed inside the box
 function makePassword(length, charset) {
   var password = '';
   var charactersLength = charset.length;

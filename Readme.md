@@ -5,7 +5,7 @@ I am able to radomly generate a password that is more secure
 # what I Did  using java script:
 WHEN I click the button to generate a password, I am presented with a series of prompts for password criteria
 
-WHEN prompted for password criteria, I am able to select which criteria to include in the password
+WHEN prompted for password criteria, I am able to select which criteria to include in the password uppercase ,special character ,lowercase or numeric
 
 WHEN prompted for the length of the password, I am able to choose a length of at least 8 characters and no more than 128 characters
 
